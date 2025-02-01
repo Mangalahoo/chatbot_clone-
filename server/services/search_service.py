@@ -11,7 +11,7 @@ class SearchService :
     def web_search(self,query :str) :
       results = []
       respone = tavily_client.search(query, max_results=10)
-      search_results =  print(respone.get("results",[]))
+      search_results =  respone.get("results",[])
       
 
       for result in search_results:
