@@ -11,8 +11,8 @@ sort_source_services = SortSourceServices()
 @app.post("/chat")
 def chat_endpoint(body :ChatBody):
     search_results = search_service.web_search(body.query)
-    sort_source_services.sort_source(body.query,search_results)
+    sorted_results = sort_source_services.sort_source(body.query,search_results)
+    print(sorted_results)
     
     #generate the response using LLM 
-    return body.query
-    
+    return body.query   
